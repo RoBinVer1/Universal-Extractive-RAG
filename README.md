@@ -39,3 +39,17 @@ The system has been strictly evaluated on the official Vietnamese Road Traffic O
 │   └── 2_RAG_Deployment_Web_UI.ipynb           # Minimal deployment notebook running the Gradio Chat Interface
 ├── .gitignore                                   # Blocks temporary runtime files (ChromaDB, JSON logs) from GitHub
 └── README.md                                    # Project documentation
+```
+## Quick Start & Installation
+
+1. Prepare Assets:
+Upload your searchable PDF (processed through ABBYY OCR) to a Kaggle Dataset.
+Enable GPU T4x2 (Accelerator) in your Kaggle Notebook settings.
+
+2. Run Ingestion & Evaluation:
+Run the cells in notebooks/1_RAG_Development_Evaluation.ipynb sequentially.
+The pipeline will automatically generate golden_dataset.json (the test suite) and parent_store.json (the parent docstore) in your /kaggle/working/ directory.
+
+3. Launch the Web Chatbot Interface:
+Create a private Kaggle Dataset containing your pre-compiled assets (chromadb_hybrid_parent_child_v4, parent_store.json, golden_dataset.json).
+Open notebooks/2_RAG_Deployment_Web_UI.ipynb, mount your dataset as an input, configure the path, and run the notebook to get a Public URL for the interactive chatbot.
