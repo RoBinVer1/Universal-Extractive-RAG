@@ -1,0 +1,3 @@
+chromadb_*/
+*.json
+.virtual_documents/
